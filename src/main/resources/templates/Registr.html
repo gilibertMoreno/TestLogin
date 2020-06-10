@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset='utf-8'>
+    <title>Formulario de registro</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link th:href="@{css/registro.css}"  rel='stylesheet' type='text/css'>
+	  
+
+</head>
+<body >
+   <form class="form" method="post" th:action="@{/register}">
+        <h2>CONTACT US</h2>
+        <p type="Nombre:"><input name="fullname"  placeholder="Digite su nombre completo.."></input></p>
+        <p type="Correo:"><input type="email" name="email" placeholder="Digite su correo.."></input></p>
+        <p type="Usuario:"><input name="name" placeholder="Digite su usuario.."></input></p>
+        <p type="Clave:"><input type="password" name="password" placeholder="Digite su clave.."></input></p>
+        <button>Send Message</button>
+        <div>
+            <span class="fa fa-phone"></span>001 1023 567
+            <span class="fa fa-envelope-o"></span> contact@company.com
+        </div>
+    </form>
+</body>
+</html>
