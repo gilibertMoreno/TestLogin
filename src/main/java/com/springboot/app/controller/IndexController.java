@@ -17,9 +17,6 @@ public class IndexController {
 		return "register";
 	}
 	
-	@GetMapping("/logout")
-	public String salir() {
-		return "login";
-	}
+	
 
 }
