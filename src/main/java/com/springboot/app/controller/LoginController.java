@@ -5,27 +5,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.springboot.app.service.IUserService;
 
 @Controller
-public class RegisterController {
-
+public class LoginController {
+	
 	@Autowired
 	private IUserService userservice;
 	
-	@PostMapping ("/register")
-	public String register(@RequestParam String fullname, @RequestParam String email, @RequestParam String name, @RequestParam String password,Model model) {
-		String mesage=userservice.registerUser(fullname, email, name, password);
-		if(mesage.equalsIgnoreCase("registro exitoso")) {
+	@PostMapping ("/login")
+	public String login(@RequestParam String  username, @RequestParam String password, Model model) {
+		String mesage=userservice.loginUser(username, password);
+		if(mesage.equalsIgnoreCase("Bienvenido")) {
 			model.addAttribute("success", mesage);
-			return("login");
+			return "home";
 		}else {
 			model.addAttribute("error", mesage);
-			return("register");
+			return "login";
+			
 		}
 		
 	}
-	
-	
-}
 
+}

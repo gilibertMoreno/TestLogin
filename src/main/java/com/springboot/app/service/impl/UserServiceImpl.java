@@ -1,5 +1,7 @@
 package com.springboot.app.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,15 +41,25 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public String loginUser(String name, String password) {
 		// TODO Auto-generated method stub
-		
-		if(!userdao.existsByName(name)) {
-			return "El usuario no se encuentra registrado";
+		Optional<User> opt=userdao.findByName(name);
+		if(opt.isPresent()) {
+			User user=opt.get();
+			System.out.println("metodo"+user.getPassword());
+			System.out.println("entrada"+password);
+			if(user.getPassword().equals(password)) {
+				return "Bienvenido";
+			}else {
+				return "Password incorrecto";
+			}
+		}else {
+			return "El usuario no existe";
 		}
 		
-		return null;
 	}
 
-
+	public String salir() {
+		return "";
+	}
 
 	
 
