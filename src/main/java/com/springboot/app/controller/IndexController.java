@@ -16,5 +16,10 @@ public class IndexController {
 	public String register() {
 		return "register";
 	}
+	
+	@GetMapping("/logout")
+	public String salir() {
+		return "login";
+	}
 
 }
